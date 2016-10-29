@@ -96,7 +96,7 @@ service_create(){
 	local path=${array[2]};
 	
 	if ! [[ -e ${FOLDER_SERVICE}/${name}.service ]]; then
-		$SUD cp ${FOLDER_SERVICE}/skilet.service ${FOLDER_SERVICE}/${name}.service
+		$SUD cp $PWD/skilet.service ${FOLDER_SERVICE}/${name}.service
 	fi
 
 	enCode=$(node -e "console.log('${path}'.replace(/\//g,'\\\/'))");
