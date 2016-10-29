@@ -18,4 +18,5 @@ cp -a bundle.tar.gz $PATHN/
 cd ../ && rm -r bundle
 cd $PATHN && tar -xzf bundle.tar.gz
 cd ./bundle/programs/server && sudo npm install
+npm install
 rm $PATHN/bundle.tar.gz

@@ -7,7 +7,7 @@
 #-n PRODUCTION=true;
 
 
-source ./config.sh
+source /data/git/bash/control-meteor-project/config.sh
 
 DATE=`date +%Y-%m-%d-%H:%M:%S`
 FOLDER_SERVICE="/etc/systemd/system";
@@ -69,8 +69,6 @@ project_check(){
 			P_PORT=${array[1]};
 			P_PATHM=${array[2]};
 			P_PATHN=${array[3]};
-
-			echo ${P_NAME};
 		fi
 	done
 }
@@ -120,12 +118,12 @@ project_command(){
 		cat-service)
 			message 'info' $1;
 			message 'run' $1;
-			cat $FOLDER_SERVICE/${PARAMS[0]}.service;
+			cat $FOLDER_SERVICE/${P_NAME}.service;
 		;;
 		console)
 			message 'info' $1;
 			message 'run' $1;
-			sudo journalctl -u ${PARAMS[0]}.service -f
+			sudo journalctl -u ${P_NAME}.service -f
 		;;
 		reload)
 			message 'info' 'daemon-reload';
@@ -147,9 +145,9 @@ project_command(){
 		*)
 			message 'info' $1;
 			message 'run' $1;
-			sudo systemctl $1 ${PARAMS[0]}.service
+			sudo systemctl $1 ${P_NAME}.service
 			if [[ $1 == 'start' || $1 == 'stop' ]]; then
-				sudo systemctl status ${PARAMS[0]}.service
+				sudo systemctl status ${P_NAME}.service
 			fi
 		;;
 	esac
