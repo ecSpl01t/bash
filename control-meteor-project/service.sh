@@ -42,7 +42,6 @@ COMMANDS=(
 	'cat-service'
 	'console'
 	'reload'
-	'generate-service'
 )
 
 PARAMS=(); # 0 - name; 1 - path; 2 - port;
