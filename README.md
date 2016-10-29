@@ -2,7 +2,9 @@
 
 ## control-meteor-project
 echo 'alias cmp="PathToScript/service.sh"' >> ~/.bashrc 
+
 ------
+
 $ cmp -p project-service -c command
 
 ### project-service
